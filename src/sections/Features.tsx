@@ -26,5 +26,15 @@ const tabs = [
 ];
 
 export const Features = () => {
-  return <section>Features</section>;
+  return <section>
+    <div className="container">
+      <h2>Elevate your SEO efforts.</h2>
+      <p>From small startup to large enterprises, our AI-driven tool has 
+        revolutionized the way business approach SEO.
+      </p>
+      {tabs.map(tab => (
+        <div key={tab.title}></div>
+      ))}
+    </div>
+  </section>
 };
