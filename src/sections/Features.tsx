@@ -30,6 +30,20 @@ const tabs = [
   },
 ];
 
+const FeatureTab = (tab: typeof tabs[number]) => {
+  return(
+    <div
+            className="border border-white/15 flex p-2.5 rounded-xl gap-2.5 items-center lg:flex-1"
+          >
+            <div className="h-12 w-12 border border-white/15 rounded-lg inline-flex items-center justify-center">
+              <DotLottiePlayer src={tab.icon} className="h-5 w-5 "autoplay />
+            </div>
+            <div className="font-medium">{tab.title}</div>
+            {tab.isNew && <div className="text-xs rounded-full px-2 py-0.5 bg-[#8c44ff] text-black font-semibold">new</div>}
+          </div>
+  )
+}
+
 export const Features = () => {
   return <section className="py-20 md:py-24">
     <div className="container">
@@ -39,16 +53,7 @@ export const Features = () => {
       </p>
       <div className="mt-10 flex flex-col lg:flex-row gap-3">
         {tabs.map(tab => (
-          <div
-            key={tab.title}
-            className="border border-white/15 flex p-2.5 rounded-xl gap-2.5 items-center lg:flex-1"
-          >
-            <div className="h-12 w-12 border border-white/15 rounded-lg inline-flex items-center justify-center">
-              <DotLottiePlayer src={tab.icon} className="h-5 w-5 "autoplay />
-            </div>
-            <div className="font-medium">{tab.title}</div>
-            {tab.isNew && <div className="text-xs rounded-full px-2 py-0.5 bg-[#8c44ff] text-black font-semibold">new</div>}
-          </div>
+          <FeatureTab {...tab} key={tab.title} />
         ))}
       </div>
       <div className="border border-white/20 p-2.5 rounded-xl mt-3">
